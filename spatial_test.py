@@ -73,8 +73,6 @@ modelnames = filter(lambda x:x.find('.th')!=-1,modeldir)
 mylog = open('./test_logs/resting_spatial.log','w')
 for modelname in modelnames:
     print(modelname)
-#     features_dir = './Vgg_features/machine learning/'+modelname[:-3]+'/'
-#     os.mkdir(features_dir)
     model = VGGV()
     model = model.cuda()
     model.load_state_dict(torch.load(modelpath+modelname))
