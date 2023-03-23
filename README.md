@@ -48,7 +48,8 @@ python3 attention_map.py
 ## Visualized results
 ![the visualized result can be seen as follow](https://github.com/ronronnersu/SFHR-NET/blob/main/figure/attention_map.png)
 
-##Citation
+## Citation
+If you find this work useful for your research, please consider citing the following paper:
 ```
 @article{su2021hypomimia,
   title={Hypomimia recognition in Parkinson’s Disease with semantic features},
