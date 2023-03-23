@@ -18,7 +18,6 @@ class FeatureExtractor():
 
     def save_gradient(self, grad):
         self.gradients.append(grad)
-        # print('gradients:',self.gradients[0].shape)
 
     def __call__(self, x):
         outputs = []
@@ -47,12 +46,10 @@ class ModelOutputs():
 
     def __call__(self, x):
         target_activations, output  = self.feature_extractor(x)
-        # print('target_activations, feature map:',target_activations[0].shape, output.shape)
         output = output.view(output.size(0), -1)
         output = self.model.layer6(output)
         output = self.model.layer7(output)
         output = self.model.layer8(output)
-#       feature map:target_activations=1,512,1,14,14; classification result:output=1,2
         return target_activations, output
 
 def preprocess_image(videoseg):
@@ -96,13 +93,11 @@ class GradCam:
 
         if index == None:
             index = np.argmax(output.cpu().data.numpy())
-            # print('output:', output)
-            # print('features.shape, index:', features[0].shape, index)
+
 
         one_hot = np.zeros((1, output.size()[-1]), dtype = np.float32)
         one_hot[0][index] = 1
         one_hot = Variable(torch.from_numpy(one_hot), requires_grad = True)
-        # print('one_hot:', one_hot.cuda() * output)
 
         if self.cuda:
             one_hot = torch.sum(one_hot.cuda() * output)
@@ -117,36 +112,25 @@ class GradCam:
         self.model.layer6.zero_grad()
         self.model.layer7.zero_grad()
         self.model.layer8.zero_grad()
-        # print('--------------1-----------------------------')
         one_hot.backward(retain_graph=True)
         grads_val = self.extractor.get_gradients()[-1].cpu().data.numpy()
         print('grad:', grads_val.shape)
-        # print('--------------2----------------------------')
         
         one_hot.backward(retain_graph=True)
         grads_val = self.extractor.get_gradients()[-1].cpu().data.numpy()
-        # print('grad:', grads_val.shape,grads_val[0,1,0,2])
-        # print('--------------2----------------------------')
         grads_val = self.extractor.get_gradients()[-1].cpu().data.numpy()
-        # print('grad:', grads_val.shape,grads_val[0,1,0,2])
+
         
         target = features[-1]
-        # print(target.shape)
         target = target.cpu().data.numpy()[0, :]       #512*2*13*11
         target = np.mean(target, axis = (1))
         target = np.expand_dims(target, axis = 1)
-        # print('target==features:',target.shape)
         weights = np.mean(grads_val, axis = (2,3,4))[0, :] #512
-        # print('weights:',weights.shape)
-        # print(weights)
         cam = np.zeros(target.shape[1 : ], dtype = np.float32)
         for i, w in enumerate(weights):
             cam += w * target[i, 0, :, :]
 
-        # print(cam[0,1,:])
         cam = np.maximum(cam, 0)
-        # print(cam[0,1,:])
-        # print(cam.shape)
         cam = cv2.resize(cam[0], (190,216))
         cam = cam - np.min(cam)
         cam = cam / np.max(cam)
@@ -193,7 +177,7 @@ def main(sourcepath):
                 videoseg = torch.cat((videoseg,sumfigure(sourcepath+picfile+'/'+pic)[None]),0)
             if i>=64:
                 break
-        # print('original videos:', videoseg.shape)
+
         input = preprocess_image(videoseg)
 
         target_index = None
@@ -210,11 +194,7 @@ def main(sourcepath):
         img = Image.open(img_path)
         img = transform(img)
         img = np.float32(img) / 255
-        # print('img.shape:',img.shape,'mask.shape:',mask.shape)
-        # savepath = './attention_map/train/'+picfile+'_'+result+'.jpg'\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         savepath = './attention_map2/test/'+picfile+'_'+result+'.jpg'
-        #\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-        # print(savepath)
         show_cam_on_image2(img, mask, savepath)
     
 
@@ -222,15 +202,11 @@ if __name__ == '__main__':
     use_cuda = get_args()
     model = VGGV()
     model = model.cuda()
-    # modelpath = './weights/spatial_weights3/spacial_model40.th'\\\\\\\\\\\\\\\\\\\\
-    modelpath = './backup/weights/spatial_weights/spacial_model.th'
-    #\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    modelpath = 'path to weights'
     model.load_state_dict(torch.load(modelpath))
     grad_cam = GradCam(model,target_layer_names = ['layer5',"8"], use_cuda=use_cuda)
     
-    # sourcepath = './dataset/crop_face/Trainset/'\\\\\\\\\\\\\\\\\
     sourcepath = './dataset/crop_face/Testset/'
-    #\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     videoseg = main(sourcepath)
     
     print('finished!')
