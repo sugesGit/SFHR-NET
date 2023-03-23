@@ -26,7 +26,7 @@ def update_lr(old_lr,new_lr, mylog, factor=False):
         return old_lr
 
 
-os.environ["CUDA_VISIBLE_DEVICES"] ='0'# 可用范围0~3
+os.environ["CUDA_VISIBLE_DEVICES"] ='0'
 
 ROOT = './dataset/optical_flow/Trainset/'
 imagelist = filter(lambda x: x.find('IMG')!=-1, os.listdir(ROOT))
