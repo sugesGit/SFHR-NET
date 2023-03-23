@@ -26,7 +26,7 @@ def update_lr(old_lr,new_lr, mylog, factor=False):
         return old_lr
 
 
-os.environ["CUDA_VISIBLE_DEVICES"] ='0'# 可用范围0~3
+os.environ["CUDA_VISIBLE_DEVICES"] ='0'
 
 ROOT = './dataset/crop_face/Trainset/'
 imagelist = filter(lambda x: x.find('IMG')!=-1, os.listdir(ROOT))
@@ -46,7 +46,6 @@ data_loader = torch.utils.data.DataLoader(
 print('log')
 mylog = open('./logs/'+NAME+'.log','w')
 solver = generate_model(model_depth=101).cuda()
-# solver.load_state_dict(torch.load('./weights/weight_resnet5/spacial_model_resnet4.th'))
 tic = time()
 no_optim = 0
 total_epoch = 100
@@ -56,13 +55,8 @@ old_lr = LEARNING_RATE
 cost = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(solver.parameters(), lr=LEARNING_RATE)
 print('training')
-#//////////////////////////
 alpha = 0
 for epoch in range(1, total_epoch + 1):
-
-    # alpha = epoch/(total_epoch)
-    # if alpha > 0.5:
-    #     alpha = 0.5
     if (epoch % 25) == 0:
         no_optim = 0
         alpha = alpha + 0.1
