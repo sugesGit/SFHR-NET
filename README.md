@@ -1,6 +1,7 @@
 # SFHR-NET
 
 The code aims to detect Parkinson's hypomimia based on facial expressions from Parkinson's desease patients and health control subjects.
+The paper is available at this link https://dl.acm.org/doi/abs/10.1145/3476778.
 
 The main method is as follows:
 
