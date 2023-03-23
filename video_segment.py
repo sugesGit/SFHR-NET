@@ -28,6 +28,5 @@ def video_seg(path):
 
 path_normal = './dataset/normal/'
 path_patient = './dataset/patient/'
-# video_seg(path_normal)
 video_seg(path_patient)
 video_seg(path_normal)
