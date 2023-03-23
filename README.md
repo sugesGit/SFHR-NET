@@ -25,3 +25,7 @@ python3 ordered_space_train.py
 ```
 python3 ordered_temporal_train.py.py
 ```
+7. Testing integrated features combining spatial features with temporal features
+```
+python3 test.py.py
+```
