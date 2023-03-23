@@ -29,7 +29,7 @@ python3 ordered_temporal_train.py
 ```
 python3 test.py
 ```
-8. Generating visulized maps for possible lesions
+8. Generating visualized maps for possible lesions
 ```
 python3 attention_map.py
 ```
