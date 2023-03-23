@@ -1,7 +1,6 @@
 # SFHR-NET
 
-SFHR-NET Network:
-Its purpose is to detect Parkinson based on facial expressions from Parkinson's desease patients and health control subjects.
+The code aims to detect Parkinson's hypomimia based on facial expressions from Parkinson's desease patients and health control subjects.
 
 The main method is as follows:
 1.The folder './dataset/patient/' and './dataset/normal/' is original dataset of this task.
