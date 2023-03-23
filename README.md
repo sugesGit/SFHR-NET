@@ -3,6 +3,8 @@
 The code aims to detect Parkinson's hypomimia based on facial expressions from Parkinson's desease patients and health control subjects.
 The paper is available [[here]](https://dl.acm.org/doi/abs/10.1145/3476778).
 
+![the visualized result can be seen as follow](https://github.com/ronronnersu/SFHR-NET/blob/main/figure/attention_map.png)
+
 The main method is as follows:
 
 1. The folder  ./dataset/patient/  and  ./dataset/normal/  is original dataset of this task  
