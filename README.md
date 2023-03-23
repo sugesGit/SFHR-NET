@@ -48,6 +48,8 @@ python3 attention_map.py
 ## Visualized results
 ![the visualized result can be seen as follow](https://github.com/ronronnersu/SFHR-NET/blob/main/figure/attention_map.png)
 
+##Citation
+```
 @article{su2021hypomimia,
   title={Hypomimia recognition in Parkinson’s Disease with semantic features},
   author={Su, Ge and Lin, Bo and Luo, Wei and Yin, Jianwei and Deng, Shuiguang and Gao, Honghao and Xu, Renjun},
@@ -58,3 +60,4 @@ python3 attention_map.py
   year={2021},
   publisher={ACM New York, NY}
 }
+```
