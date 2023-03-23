@@ -3,6 +3,12 @@
 The code aims to detect Parkinson's hypomimia based on facial expressions from Parkinson's desease patients and health control subjects.
 
 The main method is as follows:
+
+\begin{itemize}
+\item[*] a
+\item[*] b
+\end{itemize}
+
 \begin{enumerate}[1)]
 
 \item The folder './dataset/patient/' and './dataset/normal/' is original dataset of this task. 
