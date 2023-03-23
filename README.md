@@ -4,8 +4,10 @@ The code aims to detect Parkinson's hypomimia based on facial expressions from P
 
 The main method is as follows:
 \begin{enumerate}[1)]
+
 \item The folder './dataset/patient/' and './dataset/normal/' is original dataset of this task. 
 \item 'video_segment.py' will segment a complete video about 10s into some video segments containing facial expressions.
+
 \end{enumerate}
 
 
