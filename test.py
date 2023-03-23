@@ -1,4 +1,3 @@
-#添加精度，召回率，F1指标的计算
 import torch
 import torch.nn as nn
 import os, glob, numpy as np
