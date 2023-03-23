@@ -10,4 +10,10 @@ The main method is as follows:
 python3 video_segment.py
 ```
 3. Then,  crop_face.py  utilizes MTCNN algorithm to capture faces in segments.  
+```
+python3 crop_face.py
+```
 4.  dense_optical_flow.py  generates the optical flow from faces segments to record the motion information.
+```
+python3 dense_optical_flow.py
+```
