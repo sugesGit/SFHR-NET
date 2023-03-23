@@ -38,10 +38,11 @@ python3 test.py
 python3 attention_map.py
 ```
 
-| Method  | Precision(\%) |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| Backbone  | Precision(\%) | Recall(\%) | F1-score(\%) | Accuracy(\%) |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| VGG | 90.99 | 100.00 | 95.28 | 94.15 |
+| SFHR-NET(ours)  | 100.00 | 98.99 | 99.49 | 99.39 |
+
 
 The visualized result can be seen as follow:
 ![the visualized result can be seen as follow](https://github.com/ronronnersu/SFHR-NET/blob/main/figure/attention_map.png)
