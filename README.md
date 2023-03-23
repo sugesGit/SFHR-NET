@@ -5,8 +5,8 @@ The code aims to detect Parkinson's hypomimia based on facial expressions from P
 The main method is as follows:
 
 \begin{itemize}
-\item[*] a
-\item[*] b
+\item[] a
+\item[] b
 \end{itemize}
 
 \begin{enumerate}[1)]
