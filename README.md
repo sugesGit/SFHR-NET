@@ -38,6 +38,7 @@ python3 test.py
 python3 attention_map.py
 ```
 
+The experimental results are as follows:
 | Backbone  | Precision(\%) | Recall(\%) | F1-score(\%) | Accuracy(\%) |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | VGG | 90.99 | 100.00 | 95.28 | 94.15 |
