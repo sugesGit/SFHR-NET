@@ -37,5 +37,5 @@ python3 test.py
 ```
 python3 attention_map.py
 ```
-
+The visualized result can be seen as follow:
 ![the visualized result can be seen as follow](https://github.com/ronronnersu/SFHR-NET/blob/main/figure/attention_map.png)
