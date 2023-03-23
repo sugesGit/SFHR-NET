@@ -6,7 +6,7 @@ The paper is available [[here]](https://dl.acm.org/doi/abs/10.1145/3476778).
 The overview can be seen as follow:
 ![the overview can be seen as follow](https://github.com/ronronnersu/SFHR-NET/blob/main/figure/overview.png)
 
-The main method is as follows:
+## Usage
 
 1. The folder  ./dataset/patient/  and  ./dataset/normal/  is original dataset of this task  
 2. Segmenting a complete video about 10s into some video segments containing facial expressions 
@@ -38,12 +38,12 @@ python3 test.py
 python3 attention_map.py
 ```
 
-The experimental results are as follows:
+## Experiments
 | Backbone  | Precision(\%) | Recall(\%) | F1-score(\%) | Accuracy(\%) |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | VGG | 90.99 | 100.00 | 95.28 | 94.15 |
 | SFHR-NET(ours)  | 100.00 | 98.99 | 99.49 | 99.39 |
 
 
-The visualized result can be seen as follow:
+## Visualized results
 ![the visualized result can be seen as follow](https://github.com/ronronnersu/SFHR-NET/blob/main/figure/attention_map.png)
