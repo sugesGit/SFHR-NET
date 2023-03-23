@@ -96,9 +96,7 @@ print(modeldir)
 modelnames = filter(lambda x:x.find('.th')!=-1,modeldir)
 mylog = open('./test_logs/spatial_resnet.log','a')
 for modelname in modelnames:
-    print(modelname)
-#     features_dir = './Vgg_features/machine learning/'+modelname[:-3]+'/'
-#     os.mkdir(features_dir)   
+    print(modelname) 
     # model = generate_model(model_depth=101).cuda()
     model = VGGV()
     model = model.cuda()
