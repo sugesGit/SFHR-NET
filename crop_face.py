@@ -23,8 +23,6 @@ class MTCNN_face_detection():
                 break
 
     def face_detection(self,img,img_id):
-        # img = Image.open('imageNew.jpg') # 打开当前路径图像
-        # print(np.array(img).shape)
         print('img.shape:',img.shape)
 
         detector = MTCNN()
